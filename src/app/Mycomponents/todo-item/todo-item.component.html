@@ -1,0 +1,15 @@
+<div class="p-3 mb-2 bg-dark text-white" id="noWrap">
+    <div class="my-4">
+        <h3 [ngClass]="{'strike': !todo.active}">{{todo.title}} </h3>
+        <p [ngClass]="{'strike': !todo.active}">{{todo.desc}}</p>
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+            <input type="checkbox" class="btn-check" id="todo{{i}}" autocomplete="off" (click)="onCheckclick(todo)"
+                [checked]="!this.todo.active">
+            <label class="btn btn-outline-primary btn-sm" for="todo{{i}}"> 
+                <div *ngIf="todo.active; else elseBlock">Done</div>
+                <ng-template #elseBlock>Undone</ng-template></label>
+                </div>
+        <button class="btn btn-danger btn-sm position-absolute start-50" data-bs-toggle="button"
+            (click)="onClick(todo)">Delete</button>
+    </div>
+</div>
